@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap);
 
-
+@charset "UTF-8";
 
 @font-face {
   font-family: "icomoon";
@@ -2554,12 +2554,12 @@ body::after {
 }
 
 .rating {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -2604,7 +2604,7 @@ body::after {
   content: "★★★★★";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 200%;
   top: 0;
   left: 0;
   color: #E8AA31;
