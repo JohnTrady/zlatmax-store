@@ -8928,8 +8928,15 @@
         const showDeliveryOptions = () => {
             const deliveryBody = document.querySelector(".delivery__body");
             const selectCityOptions = document.querySelectorAll('div[data-id="6"]>.select__body>.select__options>.select__option');
-            selectCityOptions.forEach((selectCityOption => {
-                if (selectCityOption.hasAttribute("hidden")) deliveryBody.classList.add("_show-block");
+            const selectCityOriginalOptions = document.querySelectorAll(".option-city");
+            selectCityOptions.forEach(((selectCityOption, index) => {
+                if (selectCityOptions[index].hasAttribute("hidden")) {
+                    selectCityOriginalOptions.forEach(((item, index) => {
+                        if (item.hasAttribute("selected")) item.removeAttribute("selected", "");
+                    }));
+                    selectCityOriginalOptions[index].setAttribute("selected", "");
+                    if (selectCityOriginalOptions[index].hasAttribute("selected")) deliveryBody.classList.add("_show-block");
+                }
             }));
         };
         window.addEventListener("load", getCheckboxItemId);
