@@ -8895,6 +8895,20 @@
                 filterCatalog.classList.toggle("filter-open");
                 bodyLockToggle();
             }
+            if (targetElement.closest('div[data-id="6"]>.select__body>.select__options>.select__option')) {
+                const deliveryBody = document.querySelector(".delivery__body");
+                const selectCityOptions = document.querySelectorAll('div[data-id="6"]>.select__body>.select__options>.select__option');
+                const selectCityOriginalOptions = document.querySelectorAll(".option-city");
+                selectCityOptions.forEach(((item, index) => {
+                    if (item === targetElement) {
+                        selectCityOriginalOptions.forEach((originalEl => {
+                            if (originalEl.hasAttribute("selected")) originalEl.removeAttribute("selected", "");
+                        }));
+                        selectCityOriginalOptions[index].setAttribute("selected", "");
+                        if (selectCityOriginalOptions[index].hasAttribute("selected")) deliveryBody.classList.add("_show-block");
+                    }
+                }));
+            }
         };
         const scrollActions = () => {
             if (pageYOffset >= 140) {
@@ -8924,25 +8938,10 @@
             };
             checkReviews();
         }
-        const selectCityValue = document.querySelector('div[data-id="6"]');
-        const showDeliveryOptions = () => {
-            const deliveryBody = document.querySelector(".delivery__body");
-            const selectCityOptions = document.querySelectorAll('div[data-id="6"]>.select__body>.select__options>.select__option');
-            const selectCityOriginalOptions = document.querySelectorAll(".option-city");
-            selectCityOptions.forEach(((selectCityOption, index) => {
-                if (selectCityOptions[index].hasAttribute("hidden")) {
-                    selectCityOriginalOptions.forEach(((item, index) => {
-                        if (item.hasAttribute("selected")) item.removeAttribute("selected", "");
-                    }));
-                    selectCityOriginalOptions[index].setAttribute("selected", "");
-                    if (selectCityOriginalOptions[index].hasAttribute("selected")) deliveryBody.classList.add("_show-block");
-                }
-            }));
-        };
+        document.querySelector('div[data-id="6"]');
         window.addEventListener("load", getCheckboxItemId);
         document.addEventListener("click", documentActions);
         document.addEventListener("scroll", scrollActions);
-        if (selectCityValue) selectCityValue.addEventListener("focusout", showDeliveryOptions);
         window["FLS"] = true;
         isWebp();
         menuInit();
