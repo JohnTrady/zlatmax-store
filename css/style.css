@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap);
 
-
+@charset "UTF-8";
 
 @font-face {
   font-family: "icomoon";
@@ -136,6 +136,9 @@ button,
 textarea {
   font-family: "Montserrat";
   font-size: inherit;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
 }
 
 button {
@@ -2566,7 +2569,7 @@ body::after {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   font-size: 1.875rem;
-  line-height: 0.75;
+  line-height: 0.8 !important;
   -webkit-transition: opacity 0.3s ease 0s;
   -o-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
@@ -2594,7 +2597,7 @@ body::after {
 .rating__active {
   position: absolute;
   width: 0%;
-  height: 100%;
+  height: 300%;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -2604,7 +2607,7 @@ body::after {
   content: "★★★★★";
   position: absolute;
   width: 100%;
-  height: 200%;
+  height: 100%;
   top: 0;
   left: 0;
   color: #E8AA31;
